@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "332725261306",
+    "project_id": "travelapplication-cicikusdev",
+    "storage_bucket": "travelapplication-cicikusdev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332725261306:android:6d115f9e9e412cabbb0a43",
+        "android_client_info": {
+          "package_name": "com.cicikus.travelapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5Li4qcmdjAbvfhEqK8D8Dj94Amk0QScc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
