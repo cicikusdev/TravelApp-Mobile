@@ -1,15 +1,12 @@
-package com.cicikus.travelapplication;
+package com.cicikus.travelapplication.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.cicikus.travelapplication.R;
 import com.cicikus.travelapplication.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
