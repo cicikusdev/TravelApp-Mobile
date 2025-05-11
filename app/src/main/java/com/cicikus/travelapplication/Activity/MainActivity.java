@@ -10,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
+import com.cicikus.travelapplication.Adapter.CategoryAdapter;
 import com.cicikus.travelapplication.Adapter.SliderAdapter;
+import com.cicikus.travelapplication.Domain.Category;
 import com.cicikus.travelapplication.Domain.Location;
 import com.cicikus.travelapplication.Domain.SliderItems;
 import com.cicikus.travelapplication.R;
@@ -40,8 +43,36 @@ public class MainActivity extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         initLocations();
         initBanners();
+        initCategory();
     }
 
+    private void initCategory() {
+
+        DatabaseReference myref = database.getReference("Category");
+        ArrayList<Category> list = new ArrayList<>();
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issuee : snapshot.getChildren()) {
+                        list.add(issuee.getValue(Category.class));
+                    }
+                    if (!list.isEmpty()) {
+                        binding.recyclerViewCategory.setLayoutManager(
+                                new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        RecyclerView.Adapter adapter = new CategoryAdapter(list);
+                        binding.recyclerViewCategory.setAdapter(adapter);
+                    }
+                    binding.progressBarCategory.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     private void initLocations() {
         DatabaseReference myref = database.getReference("Location");
         ArrayList<Location> list = new ArrayList<>();
