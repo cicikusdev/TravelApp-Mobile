@@ -16,8 +16,11 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
 import com.cicikus.travelapplication.Adapter.CategoryAdapter;
+import com.cicikus.travelapplication.Adapter.PopularAdapter;
+import com.cicikus.travelapplication.Adapter.RecommendedAdapter;
 import com.cicikus.travelapplication.Adapter.SliderAdapter;
 import com.cicikus.travelapplication.Domain.Category;
+import com.cicikus.travelapplication.Domain.Item;
 import com.cicikus.travelapplication.Domain.Location;
 import com.cicikus.travelapplication.Domain.SliderItems;
 import com.cicikus.travelapplication.R;
@@ -44,8 +47,63 @@ public class MainActivity extends AppCompatActivity {
         initLocations();
         initBanners();
         initCategory();
+        initPopular();
+        initRecommended();
     }
+    private void initRecommended() {
 
+        DatabaseReference myref = database.getReference("Item");
+        ArrayList<Item> list = new ArrayList<>();
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issuee : snapshot.getChildren()) {
+                        list.add(issuee.getValue(Item.class));
+                    }
+                    if (!list.isEmpty()) {
+                        binding.recyclerViewRecommended.setLayoutManager(
+                                new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        RecyclerView.Adapter adapter = new RecommendedAdapter(list);
+                        binding.recyclerViewRecommended.setAdapter(adapter);
+                    }
+                    binding.progressBarRecommended.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void initPopular() {
+
+        DatabaseReference myref = database.getReference("Popular");
+        ArrayList<Item> list = new ArrayList<>();
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issuee : snapshot.getChildren()) {
+                        list.add(issuee.getValue(Item.class));
+                    }
+                    if (!list.isEmpty()) {
+                        binding.recyclerViewPopular.setLayoutManager(
+                                new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        RecyclerView.Adapter adapter = new PopularAdapter(list);
+                        binding.recyclerViewPopular.setAdapter(adapter);
+                    }
+                    binding.progressBarPopular.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     private void initCategory() {
 
         DatabaseReference myref = database.getReference("Category");
