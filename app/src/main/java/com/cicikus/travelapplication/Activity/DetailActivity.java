@@ -22,6 +22,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        binding = ActivityDetailBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_detail);
 
         getIntentExtra();

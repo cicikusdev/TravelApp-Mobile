@@ -181,7 +181,7 @@
                         android:text="@string/tip_duration"
                         android:textColor="@color/darkBlue"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/timeTxttourGuideTxt" />
+                        app:layout_constraintTop_toBottomOf="@+id/tourGuideTxt" />
 
                     <TextView
                         android:id="@+id/textView16"
@@ -194,7 +194,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/timeTxttourGuideTxt"
+                        android:id="@+id/tourGuideTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -215,7 +215,7 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         app:shapeAppearanceOverlay="@style/roundedFullCorner"
-                        android:id="@+id/imageView7"
+                        android:id="@+id/profile"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -230,8 +230,8 @@
                         android:layout_marginStart="8dp"
                         android:text="Tour Guide"
                         android:textColor="@color/darkBlue"
-                        app:layout_constraintStart_toEndOf="@+id/imageView7"
-                        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+                        app:layout_constraintStart_toEndOf="@+id/profile"
+                        app:layout_constraintTop_toTopOf="@+id/profile" />
 
                     <TextView
                         android:id="@+id/tourGuideNameTxt"
@@ -240,7 +240,7 @@
                         android:text="Name"
                         android:textColor="@color/darkBlue"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile"
                         app:layout_constraintStart_toStartOf="@+id/textView13" />
 
                     <ImageView
@@ -257,9 +257,9 @@
                         android:id="@+id/callBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                        app:layout_constraintBottom_toBottomOf="@+id/profile"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="@+id/profile"
                         app:srcCompat="@drawable/call" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -280,7 +280,7 @@
                     style="@android:style/Widget.Button"
                     android:layout_margin="16dp"
                     android:background="@drawable/purple_bg"
-                    android:textColor="white"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
