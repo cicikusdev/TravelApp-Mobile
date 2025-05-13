@@ -8,6 +8,7 @@
     android:background="@color/white"
     tools:context=".Activity.DetailActivity">
 
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -24,9 +25,11 @@
                 android:layout_height="match_parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp">
+                    android:layout_height="400dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/pic"
@@ -65,7 +68,6 @@
                     android:layout_marginTop="350dp"
                     android:background="@drawable/white_half_corner_bg"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -124,7 +126,6 @@
                                 style="@android:style/Widget.DeviceDefault.RatingBar.Indicator"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:indeterminate="false"
                                 android:isIndicator="true"
                                 android:numStars="5"
@@ -168,7 +169,7 @@
                                     android:textColor="@color/darkBlue"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.66"
+                                    app:layout_constraintHorizontal_bias="0.69"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -192,11 +193,10 @@
                                     app:layout_constraintEnd_toEndOf="@+id/durationTxt"
                                     app:layout_constraintStart_toStartOf="@+id/imageView9"
                                     app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <View
-                                android:id="@+id/view3"
+                                android:id="@+id/view"
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
@@ -216,6 +216,7 @@
                                     android:textColor="@color/darkBlue"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.66"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -242,7 +243,7 @@
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <View
-                                android:id="@+id/view4"
+                                android:id="@+id/view2"
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
@@ -262,6 +263,7 @@
                                     android:textColor="@color/darkBlue"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.66"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -276,6 +278,7 @@
                                     app:srcCompat="@drawable/bed" />
 
                                 <TextView
+
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
@@ -319,7 +322,7 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:background="@color/lightGray"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 

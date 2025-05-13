@@ -14,8 +14,7 @@ import com.cicikus.travelapplication.Domain.Item;
 import com.cicikus.travelapplication.R;
 import com.cicikus.travelapplication.databinding.ActivityDetailBinding;
 
-public class DetailActivity extends AppCompatActivity {
-    ActivityDetailBinding binding;
+public class DetailActivity extends AppCompatActivity {ActivityDetailBinding binding;
     private Item object;
 
     @Override
@@ -23,7 +22,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         binding = ActivityDetailBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_detail);
+        setContentView(binding.getRoot());
 
         getIntentExtra();
         setVariable();

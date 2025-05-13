@@ -24,11 +24,10 @@ public class TicketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         binding = ActivityTicketBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_ticket);
+        setContentView(binding.getRoot());
 
         getIntentExtra();
         setVariable();
-
     }
 
     private void setVariable() {
@@ -48,14 +47,14 @@ public class TicketActivity extends AppCompatActivity {
         binding.timeTxt.setText(object.getTimeTour());
         binding.tourGuideTxt.setText(object.getDateTour());
 
-        binding.callBtn.setOnClickListener(view -> {
+        binding.messageBtn.setOnClickListener(view -> {
             Intent sendIntent = new Intent(Intent.ACTION_VIEW);
             sendIntent.setData(Uri.parse("sms:" + object.getTourGuidePhone()));
             sendIntent.putExtra("sms_body", "type your message");
             startActivity(sendIntent);
         });
 
-        binding.messageBtn.setOnClickListener(view -> {
+        binding.callBtn.setOnClickListener(view -> {
             String phone = object.getTourGuidePhone();
             Intent intent = new Intent(Intent.ACTION_DIAL,
                     Uri.fromParts("tel", phone, null));
